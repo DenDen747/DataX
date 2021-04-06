@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec84c6fe-a4d7-4aec-9ff5-be078e929745" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/coin/DataX/data/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/coin/DataX/data/Schema.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/coin/DataX/data/statics/array/ArrayModification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/coin/DataX/data/statics/file/FileModification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/coin/DataX/lang/CorruptDatabaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/coin/DataX/lang/PathException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coin/DataX/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/coin/DataX/data/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coin/DataX/data/Schema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/coin/DataX/data/Schema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,5 +76,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -2,6 +2,7 @@ package coin.DataX.data;
 
 import coin.DataX.data.statics.array.ArrayModification;
 import coin.DataX.lang.CorruptDatabaseException;
+import coin.DataX.lang.PathException;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -16,7 +17,18 @@ public class Schema {
     public Schema(Database database, String name) {
         this.database = database;
         this.name = name;
-        database.addSchema(this);
+        try {
+            File file = new File(database.path + "/" + this.name + ".datax");
+            if(!file.createNewFile()) {
+                throw new PathException();
+            }
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(database.path + "/" + this.name + ".datax"));
+            bufferedWriter.append("PROPERTIES {\n\n}\nDATA {\n\n}\n");
+            bufferedWriter.close();
+        }
+        catch(Exception e) {
+            throw new CorruptDatabaseException();
+        }
     }
 
     public Database getDatabase() {

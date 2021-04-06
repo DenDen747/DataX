@@ -1,0 +1,19 @@
+PROPERTIES {
+    ##Test database
+    id {
+        dataType: INT
+        autoIncrement: true
+    }
+    username {
+        dataType: STRING
+        notNull: true
+    }
+    password {
+        dataType: STRING
+        notNull: true
+    }
+}
+DATA {
+    {0, "user1", "pass1"}
+    {1, "user2", "pass2"}
+}

@@ -29,20 +29,4 @@ public class Database {
     public Schema[] getSchemas() {
         return this.schemas;
     }
-
-    protected void addSchema(Schema schema) {
-        try {
-            File file = new File(this.path + "/" + schema.getName() + ".datax");
-            if(!file.createNewFile()) {
-                throw new PathException();
-            }
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.path + "/" + schema.getName() + ".datax"));
-            bufferedWriter.append("PROPERTIES {\n\n}\nDATA {\n\n}\n");
-            bufferedWriter.close();
-            this.schemas = ArrayModification.appendElement(this.schemas, schema);
-        }
-        catch(Exception e) {
-            throw new CorruptDatabaseException();
-        }
-    }
 }
