@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec84c6fe-a4d7-4aec-9ff5-be078e929745" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/coin/DataX/lang/SchemaNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/database/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataX.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/data/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataX/coin/DataX/data/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/data/Schema.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataX/coin/DataX/data/Schema.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/test/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DataX/test/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/coin/DataX/data/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/data/Schema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/coin/DataX/data/Schema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/database/data.datax" beforeDir="false" />
-    </list>
+    <list default="true" id="ec84c6fe-a4d7-4aec-9ff5-be078e929745" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
