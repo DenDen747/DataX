@@ -3,6 +3,7 @@ package coin.DataX.data;
 import coin.DataX.data.statics.array.ArrayModification;
 import coin.DataX.lang.CorruptDatabaseException;
 import coin.DataX.lang.PathException;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -14,21 +15,35 @@ public class Schema {
     String name;
     Database database;
 
+    JSONObject file;
+    JSONObject properties;
+    JSONObject data;
+
     public Schema(Database database, String name) {
         this.database = database;
         this.name = name;
         try {
-            File file = new File(database.path + "/" + this.name + ".datax");
-            if(!file.createNewFile()) {
-                throw new PathException();
-            }
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(database.path + "/" + this.name + ".datax"));
-            bufferedWriter.append("PROPERTIES {\n\n}\nDATA {\n\n}\n");
-            bufferedWriter.close();
+            this.properties = new JSONObject();
+            this.data = new JSONObject();
+
+            this.file = new JSONObject();
+            this.file.put("PROPERTIES", this.properties);
+            this.file.put("DATA", this.data);
+
+            FileWriter fileWriter = new FileWriter(database.path + "/" + this.name + ".json");
+            fileWriter.write(this.file.toString());
+            fileWriter.flush();
         }
         catch(Exception e) {
             throw new CorruptDatabaseException();
         }
+    }
+    protected Schema(Database database, String name, JSONObject file, JSONObject properties, JSONObject data) {
+        this.database = database;
+        this.name = name;
+        this.properties = properties;
+        this.data = data;
+        this.file = file;
     }
 
     public Database getDatabase() {
@@ -55,7 +70,11 @@ public class Schema {
     }
     public Schema setDescription(String description) {
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.database.path + "/" + this.name + ".datax"));
+            this.properties.put("description", description);
+
+            FileWriter fileWriter = new FileWriter(database.path + "/" + this.name + ".json");
+            fileWriter.write(this.file.toString());
+            fileWriter.flush();
         }
         catch(Exception e) {
             throw new CorruptDatabaseException();
