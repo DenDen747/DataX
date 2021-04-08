@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91464026-b77d-47c7-b79b-e27ab3f3d9ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/statics/json/Get.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/DataTypeNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Execution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/ResultSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Schema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Schema.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/database/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/coin/DataX/data/Schema.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/coin/DataX/data/Schema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>

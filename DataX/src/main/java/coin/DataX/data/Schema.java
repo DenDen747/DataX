@@ -42,13 +42,13 @@ public class Schema {
     }
     public Schema setDescription(String description) {
         try {
-            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name + ".json");
+            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name);
 
             JSONObject properties = file.getJSONObject("PROPERTIES");
 
             properties.put("description", description);
 
-            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name + ".json");
+            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name);
             fileWriter.write(file.toString());
             fileWriter.flush();
         }
@@ -59,7 +59,7 @@ public class Schema {
     }
     public Schema addColumn(String name, String dataType, boolean notNull, boolean autoIncremental) {
         try {
-            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name + ".json");
+            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name);
 
             JSONObject properties = file.getJSONObject("PROPERTIES");
 
@@ -75,15 +75,17 @@ public class Schema {
 
             properties.put(name, column);
 
-            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name + ".json");
+            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name);
             fileWriter.write(file.toString());
             fileWriter.flush();
 
             return this;
         }
         catch(Exception e) {
-            e.printStackTrace();
             throw new CorruptDatabaseException();
         }
+    }
+    public Schema execute(Execution execution) {
+        return this;
     }
 }
