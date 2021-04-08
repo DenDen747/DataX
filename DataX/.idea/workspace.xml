@@ -5,19 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91464026-b77d-47c7-b79b-e27ab3f3d9ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/OverrideException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Schema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Schema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/statics/array/ArrayModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/statics/array/ArrayModification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/CorruptDatabaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/CorruptDatabaseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/PathException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/PathException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/SchemaNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/SchemaNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/coin/DataX/data/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/coin/DataX/data/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/coin/DataX/data/Schema.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/coin/DataX/data/Schema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -71,5 +78,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

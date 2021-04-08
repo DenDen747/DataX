@@ -2,11 +2,9 @@ package coin.DataX.data;
 
 import coin.DataX.lang.CorruptDatabaseException;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
+import org.json.JSONTokener;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 
 public class Schema {
     private final Database database;
@@ -24,25 +22,40 @@ public class Schema {
         return this.database;
     }
 
-    public Schema setDescription(String description) {
+    public String getDescription() {
         try {
-            JSONParser parser = new JSONParser();
+            InputStream inputStream = new FileInputStream(database.getPath() + File.separator + this.name);
 
-            Object o = parser.parse(new FileReader(new File(this.database.getPath() + File.separator + this.name).getAbsolutePath()));
+            JSONTokener tokener = new JSONTokener(inputStream);
 
-            JSONObject file = (JSONObject) o;
+            JSONObject file = new JSONObject(tokener);
 
-            JSONObject properties = file.getJSONObject("DESCRIPTION");
+            JSONObject properties = file.getJSONObject("PROPERTIES");
 
-            properties.put("DESCRIPTION", description);
-
-            /*FileWriter fileWriter = new FileWriter(database.path + "/" + this.name + ".json");
-            fileWriter.write(this.file.toString());
-            fileWriter.flush();*/
+            return properties.get("description").toString();
         }
         catch(Exception e) {
-            e.printStackTrace();
-            //throw new CorruptDatabaseException();
+            throw new CorruptDatabaseException();
+        }
+    }
+    public Schema setDescription(String description) {
+        try {
+            InputStream inputStream = new FileInputStream(database.getPath() + File.separator + this.name);
+
+            JSONTokener tokener = new JSONTokener(inputStream);
+
+            JSONObject file = new JSONObject(tokener);
+
+            JSONObject properties = file.getJSONObject("PROPERTIES");
+
+            properties.put("description", description);
+
+            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name);
+            fileWriter.write(file.toString());
+            fileWriter.flush();
+        }
+        catch(Exception e) {
+            throw new CorruptDatabaseException();
         }
         return this;
     }
