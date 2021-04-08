@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec84c6fe-a4d7-4aec-9ff5-be078e929745" name="Default Changelist" comment="" />
+    <list default="true" id="91464026-b77d-47c7-b79b-e27ab3f3d9ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/OverrideException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Schema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Schema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/coin/DataX/data/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/coin/DataX/data/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/coin/DataX/data/Schema.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/coin/DataX/data/Schema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Test.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1qo9ribgupZ5lg4nYvzvGL4djvO" />
+  <component name="ProjectId" id="1qrdgHweunN4wUOYOUp5unHSOVy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,29 +43,10 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.Test" />
+      <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="DataX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test2.Test2" />
-      <module name="DataX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -61,18 +54,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test2" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ec84c6fe-a4d7-4aec-9ff5-be078e929745" name="Default Changelist" comment="" />
-      <created>1617735276660</created>
+      <changelist id="91464026-b77d-47c7-b79b-e27ab3f3d9ea" name="Default Changelist" comment="" />
+      <created>1617841755033</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1617735276660</updated>
+      <updated>1617841755033</updated>
     </task>
     <servers />
   </component>
