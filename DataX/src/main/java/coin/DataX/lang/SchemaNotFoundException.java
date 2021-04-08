@@ -1,4 +1,4 @@
-package renewed.DataX.lang;
+package coin.DataX.lang;
 
 public class SchemaNotFoundException extends RuntimeException{
     public SchemaNotFoundException(String name) {

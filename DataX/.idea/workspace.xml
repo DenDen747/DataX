@@ -5,28 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91464026-b77d-47c7-b79b-e27ab3f3d9ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataX.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/data/Database.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/data/Schema.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/data/statics/array/ArrayModification.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/data/statics/file/FileModification.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/lang/CorruptDatabaseException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/lang/PathException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/coin/DataX/lang/SchemaNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/test/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DataX/test/database/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/data/Database.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/data/Schema.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/data/statics/array/ArrayModification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/data/statics/file/FileModification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/lang/CorruptDatabaseException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/lang/PathException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/coin/DataX/lang/SchemaNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/database/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Schema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/Schema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/data/statics/array/ArrayModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/data/statics/array/ArrayModification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/CorruptDatabaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/CorruptDatabaseException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/PathException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/PathException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/SchemaNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/coin/DataX/lang/SchemaNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +35,20 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="DataX" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

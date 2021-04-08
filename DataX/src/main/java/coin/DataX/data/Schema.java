@@ -1,9 +1,11 @@
-package renewed.DataX.data;
+package coin.DataX.data;
 
 import coin.DataX.lang.CorruptDatabaseException;
 import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 public class Schema {
@@ -24,11 +26,11 @@ public class Schema {
 
     public Schema setDescription(String description) {
         try {
+            JSONParser parser = new JSONParser();
 
+            Object o = parser.parse(new FileReader(new File(this.database.getPath() + File.separator + this.name).getAbsolutePath()));
 
-            File jsonFile = new File(this.database.getPath() + File.separator + this.name + ".json");
-
-            JSONObject file = new JSONObject(jsonFile.toString());
+            JSONObject file = (JSONObject) o;
 
             JSONObject properties = file.getJSONObject("DESCRIPTION");
 

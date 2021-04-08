@@ -1,9 +1,9 @@
-package renewed.DataX.data;
+package coin.DataX.data;
 
 import org.json.JSONObject;
-import renewed.DataX.data.statics.array.ArrayModification;
-import renewed.DataX.lang.CorruptDatabaseException;
-import renewed.DataX.lang.SchemaNotFoundException;
+import coin.DataX.data.statics.array.ArrayModification;
+import coin.DataX.lang.CorruptDatabaseException;
+import coin.DataX.lang.SchemaNotFoundException;
 
 import java.io.File;
 import java.io.FileWriter;
