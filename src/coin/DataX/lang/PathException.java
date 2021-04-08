@@ -1,4 +1,4 @@
-package coin.DataX.lang;
+package renewed.DataX.lang;
 
 public class PathException extends RuntimeException{
     public PathException() {

@@ -1,4 +1,4 @@
-package coin.DataX.data.statics.array;
+package renewed.DataX.data.statics.array;
 
 import java.util.Arrays;
 
