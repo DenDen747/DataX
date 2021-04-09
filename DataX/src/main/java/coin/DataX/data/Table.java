@@ -8,11 +8,11 @@ import org.json.JSONTokener;
 
 import java.io.*;
 
-public class Schema {
+public class Table {
     private final Database database;
     private final String name;
 
-    protected Schema(Database database, String name) {
+    protected Table(Database database, String name) {
         this.database = database;
         this.name = name;
     }
@@ -40,7 +40,7 @@ public class Schema {
             throw new CorruptDatabaseException();
         }
     }
-    public Schema setDescription(String description) {
+    public Table setDescription(String description) {
         try {
             JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name);
 
@@ -57,7 +57,7 @@ public class Schema {
         }
         return this;
     }
-    public Schema addColumn(String name, String dataType, boolean notNull, boolean autoIncremental) {
+    public Table addColumn(String name, String dataType, boolean notNull, boolean autoIncremental) {
         try {
             JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name);
 
@@ -85,7 +85,8 @@ public class Schema {
             throw new CorruptDatabaseException();
         }
     }
-    public Schema execute(Execution execution) {
+    public Table execute(Execution execution) {
+        execution.Execution(new Query(null, this));
         return this;
     }
 }

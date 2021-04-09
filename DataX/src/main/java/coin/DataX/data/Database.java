@@ -4,7 +4,7 @@ import coin.DataX.lang.OverrideException;
 import org.json.JSONObject;
 import coin.DataX.data.statics.array.ArrayModification;
 import coin.DataX.lang.CorruptDatabaseException;
-import coin.DataX.lang.SchemaNotFoundException;
+import coin.DataX.lang.TableNotFoundException;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 
 public class Database {
     private String path;
-    private Schema[] schemas;
+    private Table[] tables;
 
     public Database(String path) {
         this.path = path;
@@ -29,19 +29,19 @@ public class Database {
     }
 
     protected void update() {
-        this.schemas = new Schema[]{};
+        this.tables = new Table[]{};
         File directory = new File(path);
         File[] files = directory.listFiles();
         for(File file : files) {
-            this.schemas = ArrayModification.appendElement(this.schemas, new Schema(this, file.getName()));
+            this.tables = ArrayModification.appendElement(this.tables, new Table(this, file.getName().substring(0, file.getName().indexOf(".json"))));
         }
     }
-    public Schema createSchema(String name) {
+    public Table createTable(String name) {
         this.update();
         try {
-            for(Schema schema : this.schemas) {
-                if(schema.getName().equals(name)) {
-                    throw new OverrideException("The schema " + name + " already exists.");
+            for(Table table : this.tables) {
+                if(table.getName().equals(name + ".json")) {
+                    throw new OverrideException("The table " + name + " already exists.");
                 }
             }
             JSONObject file = new JSONObject();
@@ -59,20 +59,23 @@ public class Database {
 
             this.update();
 
-            return new Schema(this, name);
+            return new Table(this, name);
+        }
+        catch(OverrideException e) {
+            throw new OverrideException("The table " + name + " already exists.");
         }
         catch(Exception e) {
             throw new CorruptDatabaseException();
         }
     }
-    public Schema getSchema(String name) {
+    public Table getTable(String name) {
         this.update();
 
-        for(Schema schema : this.schemas) {
-            if(schema.getName().equals(name + ".json")) {
-                return schema;
+        for(Table table : this.tables) {
+            if(table.getName().equals(name)) {
+                return table;
             }
         }
-        throw new SchemaNotFoundException(name);
+        throw new TableNotFoundException(name);
     }
 }
