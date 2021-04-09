@@ -42,13 +42,13 @@ public class Table {
     }
     public Table setDescription(String description) {
         try {
-            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name);
+            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name + ".json");
 
             JSONObject properties = file.getJSONObject("PROPERTIES");
 
             properties.put("description", description);
 
-            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name);
+            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name + ".json");
             fileWriter.write(file.toString());
             fileWriter.flush();
         }
