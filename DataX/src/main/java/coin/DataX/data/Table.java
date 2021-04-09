@@ -59,7 +59,7 @@ public class Table {
     }
     public Table addColumn(String name, String dataType, boolean notNull, boolean autoIncremental) {
         try {
-            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name);
+            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name + ".json");
 
             JSONObject properties = file.getJSONObject("PROPERTIES");
 
@@ -75,13 +75,32 @@ public class Table {
 
             properties.put(name, column);
 
-            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name);
+            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name + ".json");
             fileWriter.write(file.toString());
             fileWriter.flush();
 
             return this;
         }
         catch(Exception e) {
+            throw new CorruptDatabaseException();
+        }
+    }
+    public Table removeColumn(String name) {
+        try {
+            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name + ".json");
+
+            JSONObject properties = file.getJSONObject("PROPERTIES");
+
+            properties.remove(name);
+
+            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.name + ".json");
+            fileWriter.write(file.toString());
+            fileWriter.flush();
+
+            return this;
+        }
+        catch(Exception e) {
+            e.printStackTrace();
             throw new CorruptDatabaseException();
         }
     }
