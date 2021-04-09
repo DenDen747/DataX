@@ -105,7 +105,7 @@ public class Table {
         }
     }
     public Table execute(Execution execution) {
-        execution.Execution(new Query(null, this));
+        execution.Execution(new Query(null, this, this.database));
         return this;
     }
 }
