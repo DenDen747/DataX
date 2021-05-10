@@ -4,6 +4,7 @@ import coin.DataX.data.statics.dataType.DataType;
 import coin.DataX.data.statics.json.Get;
 import coin.DataX.lang.CorruptDatabaseException;
 import coin.DataX.lang.DataTypeNotFoundException;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -104,7 +105,7 @@ public class Table {
             throw new CorruptDatabaseException();
         }
     }
-    public Table execute(Execution execution) {
+    public Table execute(@NotNull Execution execution) {
         execution.Execution(new Query(null, this, this.database));
         return this;
     }
