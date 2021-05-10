@@ -40,7 +40,7 @@ public class Database {
         this.update();
         try {
             for(Table table : this.tables) {
-                if(table.getName().equals(name + ".json")) {
+                if(table.getName().equals(name)) {
                     throw new OverrideException("The table " + name + " already exists.");
                 }
             }
@@ -77,5 +77,26 @@ public class Database {
             }
         }
         throw new TableNotFoundException(name);
+    }
+    public void deleteTable(String name) {
+        this.update();
+
+        for (Table table : this.tables) {
+            if (table.getName().equals(name)) {
+                String path = this.path + "/" + table.getName() + ".json";
+                File file = new File(path);
+                file.delete();
+                return;
+            }
+        }
+
+        throw new TableNotFoundException(name);
+    }
+    public void deleteTable(Table table) {
+        this.update();
+
+        String path = this.path + "/" + table.getName() + ".json";
+        File file = new File(path);
+        file.delete();
     }
 }

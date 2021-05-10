@@ -7,7 +7,6 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.util.Iterator;
 
 public class Query{
     private String query;
@@ -65,6 +64,9 @@ public class Query{
                     catch(Exception e) {
                         throw new CorruptDatabaseException();
                     }
+                }
+                else {
+                    throw new DataXSyntaxException(this.query, args[2]);
                 }
             }
             else {
