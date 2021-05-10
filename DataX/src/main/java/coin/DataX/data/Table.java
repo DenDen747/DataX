@@ -1,5 +1,6 @@
 package coin.DataX.data;
 
+import coin.DataX.data.statics.dataType.DataType;
 import coin.DataX.data.statics.json.Get;
 import coin.DataX.lang.CorruptDatabaseException;
 import coin.DataX.lang.DataTypeNotFoundException;
@@ -57,18 +58,18 @@ public class Table {
         }
         return this;
     }
-    public Table addColumn(String name, String dataType, boolean notNull, boolean autoIncremental) {
+    public Table addColumn(String name, DataType dataType, boolean notNull, boolean autoIncremental) {
         try {
             JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name + ".json");
 
             JSONObject properties = file.getJSONObject("PROPERTIES");
 
             JSONObject column = new JSONObject();
-            if(dataType.equals("STRING") || dataType.equals("INT") || dataType.equals("DOUBLE") || dataType.equals("BOOLEAN")) {
-                column.put("dataType", dataType);
+            if(dataType.equals(DataType.STRING) || dataType.equals(DataType.INT) || dataType.equals(DataType.DOUBLE) || dataType.equals(DataType.BOOLEAN)) {
+                column.put("dataType", dataType.getValue());
             }
             else {
-                throw new DataTypeNotFoundException(dataType);
+                throw new DataTypeNotFoundException(dataType.getValue());
             }
             column.put("notNull", notNull);
             column.put("autoIncremental", autoIncremental);
@@ -100,7 +101,6 @@ public class Table {
             return this;
         }
         catch(Exception e) {
-            e.printStackTrace();
             throw new CorruptDatabaseException();
         }
     }

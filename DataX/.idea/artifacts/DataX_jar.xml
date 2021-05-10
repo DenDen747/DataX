@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="DataX:jar">
-    <output-path>$PROJECT_DIR$/../Builds/beta0.2</output-path>
+    <output-path>$PROJECT_DIR$/../Builds/beta0.3</output-path>
     <root id="archive" name="DataX.jar">
       <element id="module-output" name="DataX" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" path-in-jar="/" />
