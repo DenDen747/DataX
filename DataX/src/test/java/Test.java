@@ -8,8 +8,7 @@ public class Test {
         table.execute(new Execution() {
             @Override
             public void Execution(Query query) {
-                //query.setQuery("DELETE ALL WHERE \"username\" = \"user1\"");
-
+                query.setQuery("DELETE ALL WHERE \"username\" = \"user1\"");
                 query.executeQuery();
             }
         });

@@ -86,8 +86,9 @@ public class Query{
             }
         }
 
-        System.out.println(Arrays.toString(columns));
-        System.out.println(Arrays.toString(values));
+        if(values.length != columns.length) {
+            throw new DataXSyntaxException("Number of values given does not match number of columns given.");
+        }
 
         return new ResultSet();
     }
