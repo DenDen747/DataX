@@ -1,5 +1,6 @@
 package coin.DataX.data;
 
+import coin.DataX.lang.DatabaseNotFoundException;
 import coin.DataX.lang.OverrideException;
 import org.json.JSONObject;
 import coin.DataX.data.statics.array.ArrayModification;
@@ -7,6 +8,7 @@ import coin.DataX.lang.CorruptDatabaseException;
 import coin.DataX.lang.TableNotFoundException;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,7 +39,23 @@ public class Database {
                 this.tables = ArrayModification.appendElement(this.tables, new Table(this, file.getName().substring(0, file.getName().indexOf(".json"))));
             }
         }
-        catch(Exception ignored) {}
+        catch(Exception e) {
+            throw new DatabaseNotFoundException(this.path);
+        }
+    }
+    public Table returnTable(String name) {
+        try {
+            return this.createTable(name);
+        }
+        catch(Exception e1) {
+            try {
+                return this.getTable(name);
+            }
+            catch(Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
     }
     public Table createTable(String name) {
         this.update();
@@ -101,5 +119,15 @@ public class Database {
         String path = this.path + "/" + table.getName() + ".json";
         File file = new File(path);
         file.delete();
+    }
+    public void selfDestruct() {
+        this.update();
+        File database = new File(this.path);
+        database.delete();
+    }
+    public void selfDestructOnExit() {
+        this.update();
+        File database = new File(this.path);
+        database.deleteOnExit();
     }
 }
