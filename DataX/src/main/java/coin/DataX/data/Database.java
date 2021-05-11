@@ -29,12 +29,15 @@ public class Database {
     }
 
     protected void update() {
-        this.tables = new Table[]{};
-        File directory = new File(path);
-        File[] files = directory.listFiles();
-        for(File file : files) {
-            this.tables = ArrayModification.appendElement(this.tables, new Table(this, file.getName().substring(0, file.getName().indexOf(".json"))));
+        try {
+            this.tables = new Table[]{};
+            File directory = new File(path);
+            File[] files = directory.listFiles();
+            for (File file : files) {
+                this.tables = ArrayModification.appendElement(this.tables, new Table(this, file.getName().substring(0, file.getName().indexOf(".json"))));
+            }
         }
+        catch(Exception ignored) {}
     }
     public Table createTable(String name) {
         this.update();
