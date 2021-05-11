@@ -3,6 +3,7 @@ package coin.DataX.data;
 import coin.DataX.data.statics.array.ArrayModification;
 import coin.DataX.data.statics.json.Get;
 import coin.DataX.lang.CorruptDatabaseException;
+import coin.DataX.lang.DataXQueryRuntimeException;
 import coin.DataX.lang.DataXSyntaxException;
 import org.json.JSONObject;
 
@@ -48,7 +49,7 @@ public class Query{
                 throw new DataXSyntaxException(this.query, args[0], "Invalid command");
         }
 
-        return new ResultSet();
+        return new ResultSet(null);
     }
 
     private ResultSet insert(String[] args) {
@@ -80,17 +81,26 @@ public class Query{
                 }
                 else {
                     columns = ArrayModification.appendElement(columns, args[i].substring(0, args[i].length() - 1));
+                    if(!args[i + 1].equalsIgnoreCase("VALUES")) {
+                        throw new DataXSyntaxException(this.query, args[i + 1]);
+                    }
                     //Starting to read values after this
                     reading = true;
                 }
             }
+            else if(!args[i].equalsIgnoreCase("VALUES")) {
+                throw new DataXSyntaxException(this.query, args[i]);
+            }
         }
 
+        if(args.length == 1) {
+            throw new DataXSyntaxException("Not enough arguments");
+        }
         if(values.length != columns.length) {
-            throw new DataXSyntaxException("Number of values given does not match number of columns given.");
+            throw new DataXQueryRuntimeException("Number of values given does not match number of columns given.");
         }
 
-        return new ResultSet();
+        return new ResultSet(null);
     }
 
 
