@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91464026-b77d-47c7-b79b-e27ab3f3d9ea" name="Default Changelist" comment="" />
+    <list default="true" id="91464026-b77d-47c7-b79b-e27ab3f3d9ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DataX_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/DataX_jar.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
