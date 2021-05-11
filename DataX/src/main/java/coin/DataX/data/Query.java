@@ -1,5 +1,6 @@
 package coin.DataX.data;
 
+import coin.DataX.data.statics.array.ArrayModification;
 import coin.DataX.data.statics.json.Get;
 import coin.DataX.lang.CorruptDatabaseException;
 import coin.DataX.lang.DataXSyntaxException;
@@ -7,6 +8,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.util.Arrays;
 
 public class Query{
     private String query;
@@ -28,6 +30,86 @@ public class Query{
     }
 
     public ResultSet executeQuery() {
+        if(this.query == null) {
+            throw new NullPointerException("Cannot execute query as query is null.");
+        }
+        String[] args = this.query.split(" ");
+
+        switch(args[0].toUpperCase()) {
+            case "INSERT":
+                return insert(args);
+            case "SELECT":
+                break;
+            case "UPDATE":
+                break;
+            case "DELETE":
+                break;
+            default:
+                throw new DataXSyntaxException(this.query, args[0], "Invalid command");
+        }
+
+        return new ResultSet();
+    }
+
+    private ResultSet insert(String[] args) {
+        String[] columns = {};
+        String[] values = {};
+        //If false, reading columns. Else, reading values
+        boolean reading = false;
+
+        for(int i = 1; i < args.length; i++) {
+            if(args[i].contains("(") && args[i].contains(",")) {
+                if(reading) {
+                    values = ArrayModification.appendElement(values, args[i].substring(1, args[i].length() - 1));
+                }
+                else {
+                    columns = ArrayModification.appendElement(columns, args[i].substring(1, args[i].length() - 1));
+                }
+            }
+            else if(args[i].contains(",")) {
+                if(reading) {
+                    values = ArrayModification.appendElement(values, args[i].substring(0, args[i].length() - 1));
+                }
+                else {
+                    columns = ArrayModification.appendElement(columns, args[i].substring(0, args[i].length() - 1));
+                }
+            }
+            else if(args[i].contains(")")) {
+                if(reading) {
+                    values = ArrayModification.appendElement(values, args[i].substring(0, args[i].length() - 1));
+                }
+                else {
+                    columns = ArrayModification.appendElement(columns, args[i].substring(0, args[i].length() - 1));
+                    //Starting to read values after this
+                    reading = true;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(columns));
+        System.out.println(Arrays.toString(values));
+
+        return new ResultSet();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*public ResultSet executeQuery() {
         // TODO: 4/8/2021 Manage execution in here
         if(this.query == null) {
             throw new NullPointerException("Cannot execute query as query is null.");
@@ -59,7 +141,7 @@ public class Query{
                             //data.remove(key.next().toString());
                             String name = key.next().toString();
                             JSONObject o = data.getJSONObject(name);
-                        }*/
+                        }
                     }
                     catch(Exception e) {
                         throw new CorruptDatabaseException();
@@ -87,5 +169,5 @@ public class Query{
             throw new DataXSyntaxException(this.query, args[0]);
         }
         return new ResultSet();
-    }
+    }*/
 }
