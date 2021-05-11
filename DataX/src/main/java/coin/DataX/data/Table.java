@@ -59,7 +59,7 @@ public class Table {
         }
         return this;
     }
-    public Table addColumn(String name, DataType dataType, boolean notNull, boolean autoIncremental) {
+    public Table addColumn(String name, DataType dataType) {
         try {
             JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.name + ".json");
 
@@ -72,8 +72,8 @@ public class Table {
             else {
                 throw new DataTypeNotFoundException(dataType.getValue());
             }
-            column.put("notNull", notNull);
-            column.put("autoIncremental", autoIncremental);
+            //column.put("notNull", notNull);
+            //column.put("autoIncremental", autoIncremental);
 
             properties.put(name, column);
 

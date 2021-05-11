@@ -1,6 +1,7 @@
 package coin.DataX.data;
 
 import coin.DataX.data.statics.array.ArrayModification;
+import coin.DataX.data.statics.dataType.DataType;
 import coin.DataX.data.statics.json.Get;
 import coin.DataX.lang.CorruptDatabaseException;
 import coin.DataX.lang.DataXQueryRuntimeException;
@@ -10,6 +11,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class Query{
     private String query;
@@ -75,6 +77,19 @@ public class Query{
                     columns = ArrayModification.appendElement(columns, args[i].substring(0, args[i].length() - 1));
                 }
             }
+            else if(args[i].contains(")") && args[i].contains("(")) {
+                if(reading) {
+                    values = ArrayModification.appendElement(values, args[i].substring(1, args[i].length() - 1));
+                }
+                else {
+                    columns = ArrayModification.appendElement(columns, args[i].substring(1, args[i].length() - 1));
+                    if(!args[i + 1].equalsIgnoreCase("VALUES")) {
+                        throw new DataXSyntaxException(this.query, args[i + 1]);
+                    }
+                    //Starting to read values after this
+                    reading = true;
+                }
+            }
             else if(args[i].contains(")")) {
                 if(reading) {
                     values = ArrayModification.appendElement(values, args[i].substring(0, args[i].length() - 1));
@@ -98,6 +113,61 @@ public class Query{
         }
         if(values.length != columns.length) {
             throw new DataXQueryRuntimeException("Number of values given does not match number of columns given.");
+        }
+
+        try {
+            JSONObject file = Get.getJSONObjectFromPath(database.getPath() + File.separator + this.table.getName() + ".json");
+            JSONObject properties = file.getJSONObject("PROPERTIES");
+            JSONObject data = file.getJSONObject("DATA");
+            JSONObject rowData = new JSONObject();
+            int id = 0;
+            for (int i = 0; i < columns.length; i++) {
+                DataType dataType = null;
+                if(properties.getJSONObject(columns[i]).get("dataType").equals("STRING")) {
+                    dataType = DataType.STRING;
+                }
+                else if(properties.getJSONObject(columns[i]).get("dataType").equals("INT")) {
+                    dataType = DataType.INT;
+                }
+                else if(properties.getJSONObject(columns[i]).get("dataType").equals("DOUBLE")) {
+                    dataType = DataType.DOUBLE;
+                }
+                else if(properties.getJSONObject(columns[i]).get("dataType").equals("BOOLEAN")) {
+                    dataType = DataType.BOOLEAN;
+                }
+
+                for (Iterator key = data.keys(); key.hasNext(); ) {
+                    //data.remove(key.next().toString());
+                    String name = key.next().toString();
+                    JSONObject o = data.getJSONObject(name);
+                    int currentId = Integer.parseInt(name);
+                    if (currentId == id) {
+                        id++;
+                    } else {
+                        break;
+                    }
+                }
+
+                if(dataType.equals(DataType.STRING)) {
+                    rowData.put(columns[i], values[i]);
+                }
+                else if(dataType.equals(DataType.INT)) {
+                    rowData.put(columns[i], Integer.parseInt(values[i]));
+                }
+                else if(dataType.equals(DataType.DOUBLE)) {
+                    rowData.put(columns[i], Double.parseDouble(values[i]));
+                }
+                else if(dataType.equals(DataType.BOOLEAN)) {
+                    rowData.put(columns[i], Boolean.parseBoolean(values[i]));
+                }
+            }
+            data.put(String.valueOf(id), rowData);
+            FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.table.getName() + ".json");
+            fileWriter.write(file.toString());
+            fileWriter.flush();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
 
         return new ResultSet(null);
