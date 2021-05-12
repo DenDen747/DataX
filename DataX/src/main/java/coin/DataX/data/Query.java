@@ -55,12 +55,12 @@ public class Query{
     }
 
     private ResultSet insert(String[] args) {
-        // TODO: 5/11/2021 Return ID in ResultSet
+        int returnId = -1;
         String[] columns = {};
         String[] values = {};
         //If false, reading columns. Else, reading values
         boolean reading = false;
-        
+
         for(int i = 1; i < args.length; i++) {
             if(args[i].contains("(") && args[i].contains(",")) {
                 if(reading) {
@@ -162,6 +162,7 @@ public class Query{
                     rowData.put(columns[i], Boolean.parseBoolean(values[i]));
                 }
             }
+            returnId = id;
             data.put(String.valueOf(id), rowData);
             FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.table.getName() + ".json");
             fileWriter.write(file.toString());
@@ -171,7 +172,7 @@ public class Query{
             e.printStackTrace();
         }
 
-        return new ResultSet(null);
+        return new ResultSet(null, returnId);
     }
 
 

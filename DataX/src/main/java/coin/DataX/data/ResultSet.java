@@ -4,7 +4,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ResultSet {
     private final Object[][] rs;
-    int id;
+    int id = -1;
 
     protected ResultSet(Object[][] rs) {
         this.rs = rs;
