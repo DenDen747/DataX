@@ -109,4 +109,17 @@ public class Table {
         execution.Execution(new Query(null, this, this.database));
         return this;
     }
+    public Table rename(String newName) throws IOException {
+        File file = new File(this.database.getPath() + File.separator + this.name + ".json");
+        File file2 = new File(this.database.getPath() + File.separator + newName + ".json");
+        if (file2.exists())
+            throw new java.io.IOException("file exists");
+        boolean success = file.renameTo(file2);
+        if (!success) {
+            return new Table(this.database, newName);
+        }
+        else {
+            return null;
+        }
+    }
 }

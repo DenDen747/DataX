@@ -55,6 +55,7 @@ public class Query{
     }
 
     private ResultSet insert(String[] args) {
+        int returnId = -1;
         String[] columns = {};
         String[] values = {};
         //If false, reading columns. Else, reading values
@@ -161,6 +162,7 @@ public class Query{
                     rowData.put(columns[i], Boolean.parseBoolean(values[i]));
                 }
             }
+            returnId = id;
             data.put(String.valueOf(id), rowData);
             FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.table.getName() + ".json");
             fileWriter.write(file.toString());
@@ -170,7 +172,7 @@ public class Query{
             e.printStackTrace();
         }
 
-        return new ResultSet(null);
+        return new ResultSet(null, returnId);
     }
 
 
@@ -208,13 +210,13 @@ public class Query{
             else if(args[1].equalsIgnoreCase("ALL")) {
                 if(args.length == 2) {
                     try {
-                        JSONObject file = Get.getJSONObjectFromPath(this.database.getPath() + File.separator + this.table.getName() + ".json");
+                        JSONObject file = Get.getJSONObjectFromPath(this.database.getPath() + FileConfig.separator + this.table.getName() + ".json");
 
                         JSONObject data = file.getJSONObject("DATA");
 
                         data.clear();
 
-                        FileWriter fileWriter = new FileWriter(database.getPath() + File.separator + this.table.getName() + ".json");
+                        FileWriter fileWriter = new FileWriter(database.getPath() + FileConfig.separator + this.table.getName() + ".json");
                         fileWriter.write(file.toString());
                         fileWriter.flush();
 
