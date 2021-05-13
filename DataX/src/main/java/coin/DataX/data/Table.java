@@ -22,6 +22,9 @@ public class Table {
     public String getName() {
         return this.name;
     }
+    public String getPath() {
+        return this.database.getPath() + File.separator + this.name + ".json";
+    }
     public Database getDatabase() {
         return this.database;
     }
