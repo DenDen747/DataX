@@ -26,14 +26,14 @@ Database database = new Database("src/database");
 Table table = database.returnTable("data");
 ```
 ### Creating Columns
-To create a column inside of a database, you can do this:
+To create a column inside of a table, you can do this:
 ```java
 Database database = new Database("src/database");
 Table table = database.returnTable("data");
 table.addColumn("username", DataType.STRING);
 ```
 ### Deleting Columns
-To delete a column inside of a database, you can do this:
+To delete a column inside of a table, you can do this:
 ```java
 Database database = new Database("src/database");
 Table table = database.returnTable("data");
